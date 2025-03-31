@@ -6,7 +6,7 @@ def get_book_text(path_to_file):
 def word_count(book_text):
     words = book_text.split()
     num_words = len(words)
-    print(f"{num_words} words found in the document")
+    print(f"Found {num_words} total words")
 
 def num_of_char(book_text):
     occurences = {}
@@ -17,4 +17,14 @@ def num_of_char(book_text):
         else:
             occurences[char] += 1
     return occurences
+
+def sort_on(dict):
+    return dict["num"]
     
+def format_dict(dict):
+    sorted_list = []
+    for item in dict:
+        new_dict = {"char": item, "num": dict[item]}
+        sorted_list.append(new_dict)
+    sorted_list.sort(reverse=True, key=sort_on)
+    return sorted_list
